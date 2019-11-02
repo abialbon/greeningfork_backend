@@ -3,13 +3,16 @@ require('dotenv').config();
 const express   = require('express');
 const app       = express();
 const mongoose  = require('mongoose');
+const bodyParser = require('body-parser')
 
 // App configuration
 app.set('view engine', 'ejs');
-
+app.use(bodyParser.urlencoded({ extended: true }))
 // Routes
-const userRoutes = require('./controller/user.js');
+const userRoutes = require('./routes/userRoutes.js');
+const projectRoutes = require('./routes/projectRoutes');
 app.use(userRoutes);
+app.use('/api/project', projectRoutes);
 app.get('/', (req, res) => res.render('index', { data: 42 }));
 
 // DB connection
