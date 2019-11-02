@@ -1,0 +1,39 @@
+<% include ../partials/header %>
+
+<section class="hero has-background-warning is-fullheight">
+  <div class="hero-body">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-one-quarter card">
+          <form method="POST">
+            <h1 class="title">Signup</h1>
+            <div class="field">
+              <label class="label">Email</label>
+            <div class="control has-icons-left has-icons-right">
+              <input class="input" type="email" name="email" placeholder="Email">
+            </div>
+
+            <div class="field">
+              <label class="label">Password</label>
+            <div class="control has-icons-left has-icons-right">
+              <input class="input" type="password" name="password" placeholder="Password">
+            </div>
+            </div>
+
+            <div class="field is-grouped">
+              <div class="control">
+                <button type="submit" class="button is-link">Sign up</button>
+              </div>
+              <div class="control">
+                <a href="/"><button class="button is-link is-light" href="/">Cancel</button></a>
+              </div>
+            </div>
+          </form>  
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<% include ../partials/footer %>

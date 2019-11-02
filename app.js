@@ -9,11 +9,10 @@ const bodyParser = require('body-parser')
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({ extended: true }))
 // Routes
-const userRoutes = require('./routes/userRoutes.js');
+const indexRoutes = require('./routes/indexRoutes.js');
 const projectRoutes = require('./routes/projectRoutes');
-app.use(userRoutes);
+app.use(indexRoutes);
 app.use('/api/project', projectRoutes);
-app.get('/', (req, res) => res.render('index', { data: 42 }));
 
 // DB connection
 mongoose.connect(process.env.DB_URL);
