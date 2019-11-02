@@ -1,8 +1,8 @@
 const Project = require('../models/projectModel');
 
 const createProject = (req, res) => {
-    console.log('createProject hit');
     const newProject = new Project({
+        title: req.body.title,
         description: req.body.description,
         goal: parseInt(req.body.goal),
         current: parseInt(req.body.current)

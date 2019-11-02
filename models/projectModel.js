@@ -2,6 +2,10 @@ const mongoose = require('mongoose');
 
 const projectSchema = mongoose.Schema({
     description : String,
+    title: {
+        type: String,
+        required: true
+    },
     status: Number,
     log: {
         type: mongoose.Schema.Types.ObjectId,
@@ -22,7 +26,6 @@ const projectSchema = mongoose.Schema({
 })
 
 projectSchema.pre('save', function(next) {
-    console.log(this);
     if (this.goal == 0) {
         this.status = 0;
     } else {
