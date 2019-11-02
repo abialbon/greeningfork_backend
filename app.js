@@ -8,6 +8,8 @@ const mongoose  = require('mongoose');
 app.set('view engine', 'ejs');
 
 // Routes
+const userRoutes = require('./controller/user.js');
+app.use(userRoutes);
 app.get('/', (req, res) => res.render('index', { data: 42 }));
 
 // DB connection
