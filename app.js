@@ -1,7 +1,18 @@
-const express = require('express');
-const app = express();
-const port = 3000;
+require('dotenv').config();
 
-app.get('/', (req, res) => res.send('This is the initial commit'));
+const express   = require('express');
+const app       = express();
+const mongoose  = require('mongoose');
 
-app.listen(port, () => console.log(`The port is running on http://localhost:${port}`));
+// App configuration
+app.set('view engine', 'ejs');
+
+// Routes
+app.get('/', (req, res) => res.render('index', { data: 42 }));
+
+// DB connection
+mongoose.connect(process.env.DB_URL);
+mongoose.connection.once('open', () => {
+    console.log('Connection to the database established!');
+    app.listen(process.env.PORT, () => `The server is running on ${process.env.PORT}`)
+});
