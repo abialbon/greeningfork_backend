@@ -1,0 +1,46 @@
+<% include ../partials/header %>
+<div class="container">
+<div class="columns is-centered">
+    <div class="column is-half">
+        <form method="POST">
+            <h1 class="title">
+                Start your new project
+            </h1>
+            <div class="field">
+                <label class="label" for="title">Title</label>
+                <div class="control">
+                    <input type="text" class="input" name="title">
+                </div>
+            </div>
+
+            <div class="field">
+                <label for="description" class="label">Description</label>
+                <div class="control">
+                    <textarea name="description" id="description" cols="70"></textarea>
+                </div>
+            </div>
+
+            <div class="field">
+                <label for="goal" class="label">Goal</label>
+                <div class="control">
+                    <input type="text" class="input" name="goal">
+                </div>
+            </div>
+
+            <div class="field">
+                    <label for="current" class="label">Current Progress</label>
+                    <div class="control">
+                        <input type="text" class="input" name="current">
+                    </div>
+            </div>
+            <button  class="button is-primary" type="submit">
+                Save Project
+            </button>
+            <button class="button is-danger" type="button">
+                Reset
+            </button>
+        </form>
+    </div>
+</div>
+</div>
+<% include ../partials/footer %>
