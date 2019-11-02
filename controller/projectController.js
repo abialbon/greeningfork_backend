@@ -14,6 +14,17 @@ const createProject = (req, res) => {
     .catch((e) => console.log(e))
 }
 
+const showProjects = (req, res) => {
+    Project.find()
+    .then((projects) => {
+        res.render('project/projects', { projects: projects })
+    })
+    .catch((err) => {
+        res.send("Error")
+    })
+}
+
 module.exports = {
-    createProject
+    createProject,
+    showProjects
 }
