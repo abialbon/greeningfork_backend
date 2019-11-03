@@ -1,22 +1,24 @@
 const User = require('../models/userModel.js');
+const passport = require('passport');
 
 const createUser = (req, res) => {
-    const newUser = new User({
-        email: req.body.email,
-        password: req.body.password
-    })
-    newUser.save()
-        .then(() => {
-            res.json({
-                "success" : true
-            })
-        })
-        .catch((e) => {
-            console.log(e);
-        })
-    
+    let newUser = {
+        email: req.body.email.trim()
+    };
+    User.register(newUser, req.body.password.trim(), (err, user) => {
+        if (err) { res.send({ error: err.message }) }
+        passport.authenticate('local')(req, res, () => {
+            res.redirect('/');
+        });
+    });
 }
 
+const loginUser = passport.authenticate('local', {
+    successRedirect: '/api/project',
+    failureRedirect: '/login'
+});
+
 module.exports = {
-    createUser
+    createUser,
+    loginUser
 }
