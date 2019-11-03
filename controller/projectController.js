@@ -5,12 +5,11 @@ const createProject = (req, res) => {
         title: req.body.title,
         description: req.body.description,
         goal: parseInt(req.body.goal),
-        current: parseInt(req.body.current)
+        current: parseInt(req.body.current),
+        user: req.user.id
     })
     newProject.save()
-    .then(() => res.json({
-        "success" : true
-    }))
+    .then(() => res.redirect('/api/project'))
     .catch((e) => console.log(e))
 }
 

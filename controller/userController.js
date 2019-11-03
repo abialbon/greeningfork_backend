@@ -8,7 +8,7 @@ const createUser = (req, res) => {
     User.register(newUser, req.body.password.trim(), (err, user) => {
         if (err) { res.send({ error: err.message }) }
         passport.authenticate('local')(req, res, () => {
-            res.redirect('/');
+            res.redirect('/login');
         });
     });
 }

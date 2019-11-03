@@ -22,6 +22,10 @@ const projectSchema = mongoose.Schema({
     noForks: {
         type: Number,
         default: 0
+    },
+    user: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'user'
     }
 })
 
